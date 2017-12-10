@@ -7,35 +7,48 @@ public class Room {
     protected RoomType roomType;
     protected ArrayList<Guest> guests;
     protected int capacity;
+    protected  double price;
 
     public Room(RoomType roomType) {
         this.roomType = roomType;
         this.guests = new ArrayList<>();
         this.capacity = roomType.getTypeCapacity();
+        this.price = roomType.getTypePrice();
     }
 
     public RoomType getRoomType() {
         return roomType;
     }
 
-    public void setRoomType(RoomType roomType) {
-        this.roomType = roomType;
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public double getPrice(){
+        return price;
     }
 
     public ArrayList<Guest> getGuests() {
         return guests;
     }
 
-    public void setGuests(ArrayList<Guest> guests) {
-        this.guests = guests;
+    public void addGuest(Guest inputGuest){
+        guests.add(inputGuest);
     }
 
-    public int getCapacity() {
-        return capacity;
+
+    public int countGuests(){
+        return guests.size();
     }
 
-    public int setCapacity(int setNum){
-       return this.capacity = setNum;
+    public boolean isFull(){
+        return countGuests() >= capacity;
     }
+
+    public boolean isEmpty(){
+        return countGuests() == 0;
+    }
+
+
 
 }
