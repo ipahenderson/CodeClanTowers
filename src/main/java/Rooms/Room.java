@@ -32,6 +32,10 @@ public class Room {
         return price;
     }
 
+    public void setPrice(double inputPrice){
+        this.price = inputPrice;
+    }
+
     public ArrayList<Guest> getGuests() {
         return guests;
     }
