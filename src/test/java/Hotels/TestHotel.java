@@ -46,7 +46,6 @@ public class TestHotel {
 
 
 
-
     @Test
     public void canAddRooms(){
         assertEquals(6, hotel.getRooms().size());
@@ -95,10 +94,29 @@ public class TestHotel {
 
     @Test
     public void hotelCanMakeNightlyRate(){
-        hotel.checkIn(guest1,bedroom1, 3);
+        hotel.checkIn(guest1, bedroom1, 3);
         assertEquals(4120.00, hotel.getCash(), 0.01);
     }
 
+
+    @Test
+    public void canFindBedroomByGuestName(){
+        hotel.checkIn(guest3, bedroom1, 1);
+        assertEquals("Room: 101", hotel.findGuest("Rab"));
+    }
+
+
+    @Test
+    public void canFindGuestInConferenceRoom(){
+        hotel.checkIn(guest3, conferenceRoom, 1);
+        assertEquals("Eagle Room", hotel.findGuest("Rab"));
+    }
+
+    @Test
+    public void canFindGuestInDiningRoom(){
+        hotel.checkIn(guest3, diningRoom, 1);
+        assertEquals("Dining Room", hotel.findGuest("Rab"));
+    }
 
 
 
@@ -127,8 +145,6 @@ public class TestHotel {
         hotel.setCash(5000.00);
         assertEquals(5000.00, hotel.getCash(), 0.01);
     }
-
-
 
 
 

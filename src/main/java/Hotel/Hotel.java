@@ -13,13 +13,14 @@ public class Hotel {
     private ArrayList<Bedroom> vacantBedrooms;
 
 
-    public Hotel(String name, double cash){
+    public Hotel(String name, double cash) {
         this.name = name;
         this.cash = cash;
         this.rooms = new ArrayList<>();
         this.vacantBedrooms = new ArrayList<>();
 
     }
+
 
     public String getName() {
         return name;
@@ -42,9 +43,9 @@ public class Hotel {
     }
 
     public ArrayList<Bedroom> getVacantBedrooms() {
-        for (Room room : rooms){
-            if (room.isEmpty() && room instanceof Bedroom){
-                vacantBedrooms.add((Bedroom)room);
+        for (Room room : rooms) {
+            if (room.isEmpty() && room instanceof Bedroom) {
+                vacantBedrooms.add((Bedroom) room);
             }
         }
         return vacantBedrooms;
@@ -69,7 +70,33 @@ public class Hotel {
     public void checkOut(Guest inputGuest, Room inputRoom) {
         inputRoom.getGuests().remove(inputGuest);
     }
+
+    public String findGuest(String inputGuestName) {
+        String result = "";
+        ArrayList<Room> roomsSearch = new ArrayList<>();
+
+        for (Room room : rooms) {
+            for (Guest guesttofind : room.getGuests())
+                if (inputGuestName == guesttofind.getName()){
+                    roomsSearch.add(room);
+            }
+            for (Room roomfind : roomsSearch) {
+                if (roomfind instanceof ConferenceRoom) {
+                    result = ((ConferenceRoom) roomfind).getRoomName();
+                } else if (roomfind instanceof DiningRoom) {
+                    result = roomfind.getRoomTypeName();
+                } else if (roomfind instanceof Bedroom) {
+                    result = String.format("Room: " + ((Bedroom) roomfind).getRoomNumber());
+                }
+            }
+        }
+        return result;
+    }
+
 }
+
+
+
 
 
 
