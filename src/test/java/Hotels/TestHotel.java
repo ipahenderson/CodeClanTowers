@@ -54,7 +54,7 @@ public class TestHotel {
 
     @Test
     public void canCheckInAndCharge(){
-        hotel.checkIn(guest1, bedroom1);
+        hotel.checkIn(guest1, bedroom1, 1);
         assertEquals(1, bedroom1.getGuests().size());
         assertEquals(460.00, guest1.getWallet(), 0.01);
         assertEquals(4040.00, hotel.getCash(), 0.01);
@@ -62,7 +62,7 @@ public class TestHotel {
 
     @Test
     public void canCheckGuestOut(){
-        hotel.checkIn(guest2, bedroom1);
+        hotel.checkIn(guest2, bedroom1, 1);
         hotel.checkOut(guest2, bedroom1);
         assertEquals(true, bedroom1.isEmpty());
     }
@@ -70,14 +70,18 @@ public class TestHotel {
 
     @Test
     public void cantCheckInIfNoFunds(){
-        hotel.checkIn(guest1, conferenceRoom);
+        hotel.checkIn(guest1, conferenceRoom, 1);
         assertEquals(true, conferenceRoom.isEmpty());
     }
 
     @Test
     public void getVacantBedrooms() {
         assertEquals(4, hotel.getVacantBedrooms().size());
-        hotel.checkIn(guest1,bedroom1);
+    }
+
+    @Test
+    public void getVacantBedroomWithCheckIn(){
+        hotel.checkIn(guest1,bedroom1, 1);
         assertEquals(3, hotel.getVacantBedrooms().size());
     }
 

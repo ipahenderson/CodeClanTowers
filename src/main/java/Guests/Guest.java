@@ -28,8 +28,8 @@ public class Guest {
         this.wallet = wallet;
     }
 
-    public boolean canAffordRoom(Room inputRoom){
-        return wallet >= inputRoom.getPrice();
+    public boolean canAffordRoom(double inputPrice){
+        return wallet >= inputPrice;
     }
 
     public void payRate(Room inputRoom) {

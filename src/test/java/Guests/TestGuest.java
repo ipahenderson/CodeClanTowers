@@ -37,5 +37,9 @@ public class TestGuest {
     }
 
 
+    @Test
+    public void cantAfford(){
+        assertEquals(false, guest1.canAffordRoom(1000.00));
+    }
 
 }
