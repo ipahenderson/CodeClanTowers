@@ -56,11 +56,15 @@ public class Hotel {
     }
 
     public void checkIn(Guest inputGuest, Room inputRoom) {
-        if (!inputRoom.isFull()){
+        if (!inputRoom.isFull() && inputGuest.canAffordRoom(inputRoom)){
             inputGuest.payRate(inputRoom);
             inputRoom.addGuest(inputGuest);
             cash += inputRoom.getPrice();
         }
+    }
+
+    public void checkOut(Guest inputGuest, Room inputRoom) {
+        inputRoom.getGuests().remove(inputGuest);
     }
 }
 

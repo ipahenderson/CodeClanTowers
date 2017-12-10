@@ -61,6 +61,20 @@ public class TestHotel {
     }
 
     @Test
+    public void canCheckGuestOut(){
+        hotel.checkIn(guest2, bedroom1);
+        hotel.checkOut(guest2, bedroom1);
+        assertEquals(true, bedroom1.isEmpty());
+    }
+
+
+    @Test
+    public void cantCheckInIfNoFunds(){
+        hotel.checkIn(guest1, conferenceRoom);
+        assertEquals(true, conferenceRoom.isEmpty());
+    }
+
+    @Test
     public void getVacantBedrooms() {
         assertEquals(4, hotel.getVacantBedrooms().size());
         hotel.checkIn(guest1,bedroom1);
