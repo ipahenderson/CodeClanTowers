@@ -20,6 +20,10 @@ public class Room {
         return roomType;
     }
 
+    public String getRoomTypeName(){
+        return roomType.roomTypeName();
+    }
+
     public int getCapacity() {
         return capacity;
     }

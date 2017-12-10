@@ -11,8 +11,7 @@ public class TestGuest {
 
     @Before
     public void before(){
-        guest1 = new Guest("Bill", 500);
-
+        guest1 = new Guest("Bill", 500.00);
     }
 
     @Test
@@ -28,13 +27,15 @@ public class TestGuest {
 
     @Test
     public void canGetWallet(){
-        assertEquals(500, guest1.getWallet());
+        assertEquals(500.00, guest1.getWallet(), 0.01);
     }
 
     @Test
     public void canSetWallet(){
-        guest1.setWallet(600);
-        assertEquals(600, guest1.getWallet());
+        guest1.setWallet(600.00);
+        assertEquals(600.00, guest1.getWallet(), 0.01);
     }
+
+
 
 }

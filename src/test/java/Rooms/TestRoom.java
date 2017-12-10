@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertEquals;
+
 public class TestRoom {
 
     private Room room1;
@@ -19,18 +21,16 @@ public class TestRoom {
 
     @Test
     public void getCapacity() {
+        assertEquals(1, room1.getCapacity());
 
     }
 
     @Test
-    public void setCapacity() {
+    public void getPrice(){
+        assertEquals(40.00,room1.getPrice(), 0.01);
     }
 
-    @Test
-    public void getGuests() {
-    }
 
-    @Test
-    public void setGuests() {
-    }
 }
+
+

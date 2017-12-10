@@ -1,16 +1,18 @@
 package Rooms;
 
 public enum RoomType {
-    SINGLE(1, 40.00),
-    DOUBLE(2, 60.00),
-    FAMILY(4, 120.00),
-    DININGROOM(40, 10.00),
-    CONFERENCEROOM(100, 1000.00);
+    SINGLE("Single", 1, 40.00),
+    DOUBLE("Double", 2, 60.00),
+    FAMILY("Family", 4, 120.00),
+    DININGROOM("Dining Room", 40, 10.00),
+    CONFERENCEROOM("Conference Room", 100, 1000.00);
 
+    private final String name;
     private final int value;
     private final double price;
 
-    RoomType(int value, double price){
+    RoomType(String name, int value, double price){
+        this.name = name;
         this.value = value;
         this.price = price;
     }
@@ -22,5 +24,9 @@ public enum RoomType {
 
     public double getTypePrice() {
         return this.price;
+    }
+
+    public String roomTypeName() {
+        return this.name;
     }
 }

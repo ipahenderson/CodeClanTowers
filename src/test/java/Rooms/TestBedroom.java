@@ -13,10 +13,9 @@ public class TestBedroom {
 
     @Before
     public void before(){
-        bedroom = new Bedroom(RoomType.SINGLE);
+        bedroom = new Bedroom(RoomType.SINGLE, 101);
 
     }
-
 
     @Test
     public void capacityByType(){
