@@ -58,8 +58,7 @@ public class Hotel {
     public void checkIn(Guest inputGuest, Room inputRoom, int nights) {
         double totalPrice = (inputRoom.getPrice() * nights);
         if (inputGuest.canAffordRoom(totalPrice)) {
-            if (!inputRoom.isFull()) ;
-            {
+            if (!inputRoom.isFull()) {
                 inputGuest.payRate(inputRoom);
                 inputRoom.addGuest(inputGuest);
                 cash += totalPrice;

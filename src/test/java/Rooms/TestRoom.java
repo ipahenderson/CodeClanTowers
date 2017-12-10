@@ -19,6 +19,11 @@ public class TestRoom {
 
     }
 
+
+
+
+//    Read & Write
+
     @Test
     public void getCapacity() {
         assertEquals(1, room1.getCapacity());
@@ -29,6 +34,13 @@ public class TestRoom {
     public void getPrice(){
         assertEquals(40.00,room1.getPrice(), 0.01);
     }
+
+    @Test
+    public void canSetPrice(){
+        room1.setPrice(60.00);
+        assertEquals(60.00,room1.getPrice(), 0.01);
+    }
+
 
 
 }
