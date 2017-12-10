@@ -1,11 +1,13 @@
 package Guests;
 
+import Rooms.Room;
+
 public class Guest {
 
     private String name;
-    private int wallet;
+    private double wallet;
 
-    public Guest(String name, int wallet) {
+    public Guest(String name, double wallet) {
         this.name = name;
         this.wallet = wallet;
     }
@@ -18,11 +20,15 @@ public class Guest {
         this.name = name;
     }
 
-    public int getWallet() {
+    public double getWallet() {
         return wallet;
     }
 
-    public void setWallet(int wallet) {
+    public void setWallet(double wallet) {
         this.wallet = wallet;
+    }
+
+    public void payRate(Room inputRoom) {
+        wallet -= inputRoom.getPrice();
     }
 }
