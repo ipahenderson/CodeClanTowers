@@ -98,6 +98,12 @@ public class TestHotel {
         assertEquals(4120.00, hotel.getCash(), 0.01);
     }
 
+    @Test
+    public void guestPaysTotalForNights(){
+        hotel.checkIn(guest1, bedroom1, 3);
+        assertEquals(380.00, guest1.getWallet(),0.01);
+    }
+
 
     @Test
     public void canFindBedroomByGuestName(){

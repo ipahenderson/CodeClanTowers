@@ -43,6 +43,7 @@ public class Hotel {
     }
 
     public ArrayList<Bedroom> getVacantBedrooms() {
+        vacantBedrooms.clear();
         for (Room room : rooms) {
             if (room.isEmpty() && room instanceof Bedroom) {
                 vacantBedrooms.add((Bedroom) room);
@@ -60,7 +61,9 @@ public class Hotel {
         double totalPrice = (inputRoom.getPrice() * nights);
         if (inputGuest.canAffordRoom(totalPrice)) {
             if (!inputRoom.isFull()) {
-                inputGuest.payRate(inputRoom);
+                for (int i =0 ; i < nights ; i++){
+                    inputGuest.payRate(inputRoom);
+                }
                 inputRoom.addGuest(inputGuest);
                 cash += totalPrice;
             }
